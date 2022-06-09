@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin formSize($w, $h, $fz, $br) {
+    width: $w;
+    height: $h;
+    font-size: $fz;
+    text-align: center;
+    margin: 0 5px;
+    border-radius: $br;
+}
+
+@mixin blocks($top, $left, $pos) {
+    top: $top;
+    left: $left;
+    position: $pos;
+}
+
+body {
+    background-color: orange;
+}
+
+button,
+input {
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+main {
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        & h1 {
+            @include blocks(20%, auto, absolute);
+            color: #fff;
+        }
+        .form {
+            @include blocks(40%, auto, absolute);
+            width: 500px;
+            .inp {
+                @include formSize(300px, 40px, 20px, 10px);
+            }
+            .how {
+                @include formSize(50px, 40px, 20px, 10px);
+            }
+            .btn {
+                @include formSize(100px, 40px, 20px, 20px);
+                cursor: pointer;
+            }
+        }
+        .pass {
+            @include blocks(50%, auto, absolute);
+            width: 500px;
+            & li {
+                text-align: start;
+                font-size: 26px;
+                word-wrap: break-word;
+                line-height: 40px;
+                color: #fff;
+            }
+        }
+    }
+}
